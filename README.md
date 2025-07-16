@@ -1,1 +1,137 @@
-#### composer require intervention/image
+<textarea readonly rows="50" style="width:100%;padding:10px;font-family:monospace;font-size:14px;white-space:pre-wrap;line-height:1.5;">
+# 📝 Laravel 12 Todo Reminder Application
+
+This is a Laravel 12-based **Todo Management App** with the following features:
+
+- ✅ Create / Read / Update / Delete Todos
+- ⏰ Send reminder emails **10 minutes before the due time**
+- 📎 Emails include a **CSV attachment** with 10 titles from a public API
+- 📬 Email logs are stored in the database
+- 🧰 Uses Laravel **Scheduler** and **Queues**
+- 🎨 Simple Bootstrap UI with separate pages for Create and Edit
+
+---
+
+## 📦 Tech Stack
+
+- **Laravel 12**
+- **PHP 8.2+**
+- **Bootstrap 5**
+- **MySQL / SQLite**
+- **Laravel Queue + Scheduler**
+- **Mailtrap** (for testing email)
+
+---
+
+## ⚙️ Installation Instructions
+
+### 1. Clone the Project
+
+git clone https://github.com/saifur-shamim/Todo-reminder.git
+cd Todo-reminder
+
+### 2. Install Dependencies
+
+composer install
+
+### 3. Copy `.env` File
+
+cp .env.example .env
+
+### 4. Configure `.env`
+Copy everything from the provided env.text file and paste it into .env file in the root of the project.
+
+Then update necessary values like your database name, username, password, and set the correct database port according to your local setup (default is 3306 for MySQL).
+
+### 5. Generate App Key
+
+php artisan key:generate
+
+### 6. Run Migrations
+
+php artisan migrate
+
+### 7. Start the Laravel Server
+
+php artisan serve
+
+Now visit: http://localhost:8000
+
+
+
+## ⏲️ Scheduler & Queue Setup
+
+### 1. Enable Queue with Database Driver
+
+php artisan queue:table
+php artisan migrate
+
+Then run the queue worker:
+
+php artisan queue:work
+
+### 2. Enable Scheduler
+
+Set the Laravel scheduler in your system's cron job:
+
+* * * * * php /path-to-your-project/artisan schedule:run >> /dev/null 2>&1
+
+Or, for local testing, run manually:
+
+php artisan schedule:work
+
+
+## 🌐 Routes Overview
+
+### 📄 Web Routes
+
+| Route               | Description              |
+|---------------------|--------------------------|
+| `/`                 | View all todos           |
+| `/todos/create`     | Create new todo          |
+| `/todos/{id}/edit`  | Edit existing todo       |
+
+### 🔌 API Routes
+
+| Method | Endpoint          | Description       |
+|--------|-------------------|-------------------|
+| GET    | `/api/todos`      | List all todos    |
+| POST   | `/api/todos`      | Create a todo     |
+| GET    | `/api/todos/{id}` | View single todo  |
+| PUT    | `/api/todos/{id}` | Update a todo     |
+| DELETE | `/api/todos/{id}` | Delete a todo     |
+| GET    | `/api/email-logs` | View email logs   |
+
+---
+
+## 📧 Email Reminder Details
+
+- When a todo is created with a `due_datetime` in the future,
+- A scheduled command runs every minute and:
+  - Checks if any todo is **10 minutes away from due**
+  - Sends an email reminder
+  - Attaches a **CSV file** containing 10 titles fetched from:
+    - https://jsonplaceholder.typicode.com/posts
+  - Marks the `email_sent` column as `true`
+  - Saves a log in `email_logs` table
+
+---
+
+## 📁 Project Structure Highlights
+
+app/
+├── Console/Commands/SendTodoReminders.php
+├── Jobs/SendTodoEmailJob.php
+├── Mail/TodoReminderMail.php
+├── Services/EmailLogger.php
+├── Models/Todo.php
+├── Models/EmailLog.php
+resources/views/
+├── todos.blade.php
+├── create-todo.blade.php
+├── edit-todo.blade.php
+routes/
+├── web.php
+├── api.php
+
+---
