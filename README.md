@@ -169,8 +169,12 @@ routes/
 ```
 
 ````markdown
-**Important Note for Email Testing:**
-By default, reminder emails are sent to a hardcoded address for demonstration. To receive reminder emails in your own inbox for testing, you will need to modify the `$recipient` variable within the `handle()` function of the `app/Jobs/SendTodoEmailJob.php` file:
+**⚠️ IMPORTANT NOTE FOR EMAIL TESTING ⚠️**
+
+By default, reminder emails are sent to a hardcoded address for demonstration.
+To receive reminder emails in your own inbox for testing,
+you will need to modify the `$recipient` variable
+within the `handle()` function of the `app/Jobs/SendTodoEmailJob.php` file:
 
 ```php
 // app/Jobs/SendTodoEmailJob.php
