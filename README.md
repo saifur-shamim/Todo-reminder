@@ -28,7 +28,7 @@ This is a Laravel 12-based **Todo Management App** with the following features:
 ### 1. Clone the Project
 
 ```bash
-git clone [https://github.com/saifur-shamim/Todo-reminder.git](https://github.com/saifur-shamim/Todo-reminder.git)
+git clone https://github.com/saifur-shamim/Todo-reminder.git
 cd Todo-reminder
 ````
 
