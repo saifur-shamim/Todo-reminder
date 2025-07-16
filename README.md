@@ -76,11 +76,10 @@ Got it. Here's the updated "Scheduler & Queue Setup" section, incorporating the 
 
 I'll assume `todo:send-reminders` is a custom command that needs to be run *after* the scheduler is set up (as the scheduler is what typically triggers custom commands).
 
-````markdown
 ## ⏲️ Scheduler & Queue Setup
 
 ### 1. Enable Queue with Database Driver
-````
+
 
 ```bash
 php artisan queue:table
