@@ -168,11 +168,11 @@ routes/
 ├── api.php
 ```
 
-Important Note for Email Testing:
-By default, reminder emails are sent to a hardcoded address for demonstration. To receive reminder emails in your own inbox for testing, you will need to modify the $recipient variable within the handle() function of the app/Jobs/SendTodoEmailJob.php file:
+````markdown
+**Important Note for Email Testing:**
+By default, reminder emails are sent to a hardcoded address for demonstration. To receive reminder emails in your own inbox for testing, you will need to modify the `$recipient` variable within the `handle()` function of the `app/Jobs/SendTodoEmailJob.php` file:
 
-PHP
-
+```php
 // app/Jobs/SendTodoEmailJob.php
 
 public function handle(): void
@@ -183,6 +183,9 @@ public function handle(): void
 
     // ... rest of the code that uses $recipient ...
 }
-Remember to set up your Mailtrap (or other SMTP) credentials in your .env file as well for emails to be sent.
+````
+
+Remember to set up your Mailtrap (or other SMTP) credentials in your `.env` file as well for emails to be sent.
+
 ```
 ```
