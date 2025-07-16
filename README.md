@@ -110,9 +110,6 @@ php artisan schedule:work
 php artisan todo:send-reminders
 ```
 
-```
-```
-
 -----
 
 ## 🌐 Routes Overview
