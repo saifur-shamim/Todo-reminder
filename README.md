@@ -83,6 +83,9 @@ I'll assume `todo:send-reminders` is a custom command that needs to be run *afte
 
 ```bash
 php artisan queue:table
+````
+
+```bash
 php artisan migrate
 ````
 
@@ -105,13 +108,6 @@ Or, for local testing, run manually:
 ```bash
 php artisan schedule:work
 ```
-
-**After setting up the scheduler, you will also need to run the following command to manually trigger the todo reminders (or ensure it's part of your scheduled tasks):**
-
-```bash
-php artisan todo:send-reminders
-```
-
 
 -----
 
