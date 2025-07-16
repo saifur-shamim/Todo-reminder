@@ -29,9 +29,11 @@ This is a Laravel 12-based **Todo Management App** with the following features:
 
 ```bash
 git clone https://github.com/saifur-shamim/Todo-reminder.git
+
+````
+```bash
 cd Todo-reminder
 ````
-
 ### 2\. Install Dependencies
 
 ```bash
