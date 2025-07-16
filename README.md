@@ -195,8 +195,8 @@ routes/
 ├── api.php
 ```
 
-````markdown
-## **⚠️ IMPORTANT NOTE FOR EMAIL TESTING ⚠️**
+## ⚠️ IMPORTANT NOTE FOR EMAIL TESTING ⚠️
+
 
 By default, reminder emails are sent to a hardcoded address for demonstration.
 To receive reminder emails in your own inbox for testing,
