@@ -80,6 +80,7 @@ I'll assume `todo:send-reminders` is a custom command that needs to be run *afte
 ## ⏲️ Scheduler & Queue Setup
 
 ### 1. Enable Queue with Database Driver
+````
 
 ```bash
 php artisan queue:table
