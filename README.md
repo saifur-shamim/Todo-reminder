@@ -48,11 +48,8 @@ cp .env.example .env
 
 ### 4\. Configure `.env`
 
-Copy everything from the provided `env.text` file and paste it into the `.env` file in the root of the project. Then, update necessary values like your database name, username, password, and set the correct database port according to your local setup (default is 3306 for MySQL).
+Copy the contents of the provided `env.text` file into  `.env` file in the root directory of the project. Then update the configuration values to match your local environment — such as database credentials, mail settings, and port numbers (MySQL uses port 3306 by default).
 
-
-
-2. Open the `.env` file and update the following configurations according to your local environment:
 
 #### 🔧 Database Configuration:
 
@@ -81,11 +78,6 @@ MAIL_FROM_NAME="Todo App"
 > * Use a **Gmail App Password**, not your Gmail login password.
 >   👉 [How to generate an App Password](https://support.google.com/accounts/answer/185833)
 
-
-```
-
-Let me know if you want this included with your entire setup section or want a `.env.example` template too.
-```
 
 ### 5\. Generate App Key
 
