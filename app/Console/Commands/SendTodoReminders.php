@@ -20,7 +20,7 @@ class SendTodoReminders extends Command
         $in10Min = $now->copy()->addMinutes(10);
         Log::info('Checking todos between: ' . now() . ' and ' . now()->copy()->addMinutes(10));
 
-        // Get todos due within the next 10 minutes and not yet emailed
+       
         $todos = Todo::where('email_sent', false)
             ->whereBetween('due_datetime', [$now, $in10Min])
             ->get();
@@ -28,7 +28,7 @@ class SendTodoReminders extends Command
         Log::info($todos->toArray());
         Log::info(message: "h1");
         foreach ($todos as $todo) {
-            // Dispatch the queued job
+            
             Log::info(message: "h2");
 
             SendTodoEmailJob::dispatch($todo);

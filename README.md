@@ -110,6 +110,7 @@ php artisan schedule:work
 php artisan todo:send-reminders
 ```
 
+
 -----
 
 ## 🌐 Routes Overview
@@ -167,5 +168,21 @@ routes/
 ├── api.php
 ```
 
+Important Note for Email Testing:
+By default, reminder emails are sent to a hardcoded address for demonstration. To receive reminder emails in your own inbox for testing, you will need to modify the $recipient variable within the handle() function of the app/Jobs/SendTodoEmailJob.php file:
+
+PHP
+
+// app/Jobs/SendTodoEmailJob.php
+
+public function handle(): void
+{
+    // ... other code ...
+
+    $recipient = 'your-email@example.com'; // <--- Change 'your-email@example.com' to your actual email address.
+
+    // ... rest of the code that uses $recipient ...
+}
+Remember to set up your Mailtrap (or other SMTP) credentials in your .env file as well for emails to be sent.
 ```
 ```
