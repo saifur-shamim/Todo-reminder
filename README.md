@@ -70,14 +70,19 @@ Now visit: `http://localhost:8000`
 
 -----
 
+Got it. Here's the updated "Scheduler & Queue Setup" section, incorporating the `php artisan todo:send-reminders` command where it makes the most sense.
+
+I'll assume `todo:send-reminders` is a custom command that needs to be run *after* the scheduler is set up (as the scheduler is what typically triggers custom commands).
+
+````markdown
 ## ⏲️ Scheduler & Queue Setup
 
-### 1\. Enable Queue with Database Driver
+### 1. Enable Queue with Database Driver
 
 ```bash
 php artisan queue:table
 php artisan migrate
-```
+````
 
 Then run the queue worker:
 
@@ -97,6 +102,15 @@ Or, for local testing, run manually:
 
 ```bash
 php artisan schedule:work
+```
+
+**After setting up the scheduler, you will also need to run the following command to manually trigger the todo reminders (or ensure it's part of your scheduled tasks):**
+
+```bash
+php artisan todo:send-reminders
+```
+
+```
 ```
 
 -----
