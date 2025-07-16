@@ -189,5 +189,3 @@ public function handle(): void
 
 Remember to set up your Mailtrap (or other SMTP) credentials in your `.env` file as well for emails to be sent.
 
-```
-```
